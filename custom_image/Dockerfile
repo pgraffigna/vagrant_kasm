@@ -15,22 +15,22 @@ RUN apt-get update \
 # Cambiar el fondo de pantalla
 COPY assets/ub-wall.png  /usr/share/extra/backgrounds/bg_default.png
 
-# Install Starship
+# Starship
 RUN wget -q https://starship.rs/install.sh \
     && chmod +x install.sh \
     && ./install.sh -y
 
-# Add Starship to bashrc
+# Starship autostart
 RUN echo 'eval "$(starship init bash)"' >> .bashrc
 
-# Add Starship Theme
+# Starship config
 COPY assets/starship.toml .config/starship.toml
 
-# Install Hack Nerd Font
+# Hack Nerd Font
 RUN wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip \
     && unzip Hack.zip -d /usr/local/share/fonts
 
-# Install XFCE Dark Theme
+# XFCE Dark 
 RUN apt-get install numix-gtk-theme
 
 ######### End Customizations ###########
@@ -45,6 +45,5 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 USER 1000
 
 ## docker build -t pgraffigna/test-dbox:v1 .
-## docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password pgraffigna/test-dbox:v1 ## user:kasm_user
-## docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_USER=pgraffigna -e VNC_PW=password123 pgraffigna/test-dbox:v1 
-
+## docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=pass123 pgraffigna/test-dbox:v1 ## user:kasm_user
+## docker run --detach -p6901:6901 --shm-size=512m -e VNC_PW=pass123 pgraffigna/xfce-dbox:v1

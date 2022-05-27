@@ -24,7 +24,7 @@ SCRIPT
   config.vm.define "kasm" do |t|
     t.vm.box = IMAGEN
     t.vm.hostname = "kasm"
-    t.vm.network "forwarded_port", guest: 443, host: 8443
+    #t.vm.network "forwarded_port", guest: 443, host: 8443
   
     t.vm.provision "shell", inline: $SCRIPT 
     t.vm.post_up_message = "Falta correr el instalador..sudo bash /tmp/kasm_release/install.sh"
