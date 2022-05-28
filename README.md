@@ -4,7 +4,7 @@
 
 ---
 
-### Notas sobre la creación de contenedores personalizados para KASM 
+### Notas sobre la creación de contenedores personalizados 
 
 ### Basado en este video [link](https://www.youtube.com/watch?v=YesDodQ2Y7o) 
 
@@ -14,4 +14,7 @@
 
 - [ ] tmux + config
 - [x] starship + config
-- [ ] openvpn
+- [x] openvpn
+- [ ] nano + config
+- [ ] lsd + config
+- [ ] codium
